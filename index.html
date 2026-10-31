@@ -1,25 +1,187 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>YouTube Music - Moataz</title>
-<meta name="description" content="An unofficial personal YouTube Music client for LG webOS TVs.">
-<style>body{font-family:system-ui,sans-serif;max-width:720px;margin:2rem auto;padding:0 1rem;line-height:1.6;color:#222}h1{font-size:1.6rem}h2{font-size:1.2rem;margin-top:1.8rem}a{color:#0b57d0}footer{margin-top:2.5rem;font-size:.9rem;color:#555}</style></head><body>
-<h1>YouTube Music - Moataz</h1>
-<p>YouTube Music - Moataz is a personal, unofficial YouTube Music client for LG webOS TVs. It is built and maintained by one person, Moataz Younes, for his own use. It is not affiliated with, endorsed by, or sponsored by YouTube or Google. YouTube and YouTube Music are trademarks of Google LLC.</p>
-<h2>What the app does</h2>
-<ul>
-<li>Browses and plays music and videos from YouTube on the TV.</li>
-<li>Lets you sign in with your Google account using Google's OAuth device flow (you enter a short code on your phone or computer).</li>
-<li>After sign-in, it can optionally read and browse your liked videos and the YouTube playlists you own. Saved YouTube Music albums and songs are currently unavailable, because YouTube does not allow OAuth access to them.</li>
-<li>Only after you explicitly confirm in the app each time, it can (a) rate a song as liked on your YouTube account, and (b) create private playlists and add songs to playlists you own.</li>
-<li>It never deletes or edits playlists, never removes songs from playlists, and never removes a like on YouTube. Removing a like locally on the TV does not remove the rating on YouTube.</li>
-<li>Keeps local likes, play counts and resume positions on the TV only.</li>
-<li>Lets you unlink your account at any time from the app. Unlinking revokes the access token with Google and removes it from the TV.</li>
-</ul>
-<h2>How it works</h2>
-<p>The app runs on the TV and fetches catalog and playback data directly from YouTube. There is no server operated for this app, no advertising and no analytics.</p>
-<h2>Privacy</h2>
-<p>Read the <a href="privacy.html">Privacy Policy</a> for details on what data the app uses and where it is stored.</p>
-<h2>Contact</h2>
-<p>Developer: Moataz Younes - <a href="mailto:moatazjon@gmail.com">moatazjon@gmail.com</a></p>
-<footer><a href="privacy.html">Privacy Policy</a></footer>
-</body></html>
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moataz Younes | Roads &amp; Infrastructure Engineer</title>
+<meta name="description" content="Moataz Younes — Technical Office Engineer (Roads & Infrastructure) in Alexandria, Egypt, and builder of the younes software line: youpharma, youerp, youcad, youweb and more.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Moataz Younes | Roads & Infrastructure Engineer">
+<meta property="og:description" content="Technical Office Engineer for roads & infrastructure, and builder of the younes software line.">
+<meta property="og:image" content="assets/img/og-cover.png">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Moataz Younes",
+  "url": "https://www.linkedin.com/in/moatazyoun/",
+  "sameAs": ["https://www.linkedin.com/in/moatazyoun/"],
+  "jobTitle": "Technical Office Engineer — Roads & Infrastructure",
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Alexandria University" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Alexandria", "addressCountry": "EG" }
+}
+</script>
+<script>
+  // Apply saved theme/lang before paint to avoid flicker
+  try {
+    var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t);
+    var l = localStorage.getItem('lang');
+    if (l === 'ar') { document.documentElement.lang = 'ar'; document.documentElement.dir = 'rtl'; }
+  } catch (e) {}
+</script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand" aria-label="younes — home"><span class="wm" aria-hidden="true"><span class="wm-you">y<span class="wm-ou">ou</span></span><span class="wm-tail">nes</span></span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#experience" data-i18n="nav_experience">Experience</a>
+      <a href="#skills" data-i18n="nav_skills">Skills</a>
+      <a href="#software" data-i18n="nav_software">Software</a>
+      <a href="#projects" data-i18n="nav_projects">Projects</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="langBtn" aria-label="Switch language"><span id="langLabel">ع</span></button>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme"><span id="themeIcon"></span></button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-main">
+      <p class="eyebrow reveal" data-i18n="hero_eyebrow">Civil Engineer · Software Builder</p>
+      <h1 class="reveal"><span data-i18n="hero_hi">Hi, I'm</span> <span class="accent" data-dyn="name"></span></h1>
+      <p class="hero-title reveal" data-dyn="title"></p>
+      <p class="hero-lead reveal" data-i18n="hero_lead"></p>
+      <p class="open-pill reveal" data-i18n="hero_open"></p>
+      <div class="hero-cta reveal">
+        <a href="#software" class="btn btn-primary" data-i18n="hero_cta1">View Projects</a>
+        <a href="#" class="btn btn-ghost" id="heroCv" download data-i18n="hero_cta2">Download CV</a>
+      </div>
+      <div class="stats reveal" id="stats"></div>
+      </div>
+      <aside class="hero-line reveal" id="heroLine" aria-label="younes products"></aside>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head reveal"><span class="kicker">01</span><h2 data-i18n="about_h">About me</h2></div>
+      <div class="about-grid">
+        <div class="about-text reveal" id="aboutText"></div>
+        <aside class="about-card reveal" id="aboutCard"></aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section alt" id="experience">
+    <div class="container">
+      <div class="section-head reveal"><span class="kicker">02</span><h2 data-i18n="exp_h">Experience</h2></div>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-head reveal"><span class="kicker">03</span><h2 data-i18n="skills_h">Skills</h2></div>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </div>
+  </section>
+
+  <!-- SOFTWARE -->
+  <section class="section alt" id="software">
+    <div class="container">
+      <div class="section-head reveal"><span class="kicker">04</span><h2 data-i18n="sw_h">Software I've built</h2></div>
+      <p class="section-sub reveal" data-i18n="sw_sub"></p>
+      <div class="sw-grid" id="swGrid"></div>
+    </div>
+  </section>
+
+  <!-- CIVIL PROJECTS -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-head reveal"><span class="kicker">05</span><h2 data-i18n="pr_h">Civil engineering projects</h2></div>
+      <div class="filters reveal" id="filters" role="tablist"></div>
+      <div class="pr-layout">
+        <div class="pr-list" id="prGrid"></div>
+        <div class="pr-map-wrap reveal">
+          <div class="pr-map-bar">
+            <div class="pr-map-title"><b id="prMapPlace"></b><small id="prMapNote"></small></div>
+            <div class="seg" id="mapType" role="group"><button type="button" data-maptype="m" data-i18n="map_m">Map</button><button type="button" data-maptype="k" data-i18n="map_s">Satellite</button></div>
+          </div>
+          <iframe id="prMapFrame" class="pr-map" title="Project location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <a id="prMapLink" class="btn btn-ghost btn-sm" target="_blank" rel="noopener" data-i18n="open_map">Open in Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section class="section alt" id="cv">
+    <div class="container">
+      <div class="section-head reveal"><span class="kicker">06</span><h2 data-i18n="cv_h">Resume</h2></div>
+      <div class="cv-box reveal">
+        <p data-i18n="cv_text"></p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" id="cvEn" href="#" download data-i18n="cv_en">English CV (PDF)</a>
+          <a class="btn btn-ghost" id="cvAr" href="#" download data-i18n="cv_ar">Arabic CV (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head reveal"><span class="kicker">07</span><h2 data-i18n="ct_h">Let's talk</h2></div>
+      <div class="contact-grid">
+        <div class="contact-cards reveal" id="contactCards"></div>
+        <form class="contact-form reveal" id="contactForm">
+          <label><span data-i18n="f_name">Name</span><input name="name" required></label>
+          <label><span data-i18n="f_email">Email</span><input name="email" type="email" required></label>
+          <label><span data-i18n="f_msg">Message</span><textarea name="message" rows="5" required></textarea></label>
+          <button class="btn btn-primary" type="submit" data-i18n="f_send">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="foot-brand"><span class="wm" role="img" aria-label="younes"><span class="wm-you" aria-hidden="true">y<span class="wm-ou">ou</span></span><span class="wm-tail" aria-hidden="true">nes</span></span>
+      <p>© <span id="year"></span> <span data-dyn="name"></span>. <span data-i18n="rights">All rights reserved.</span></p></div>
+    <div class="socials" id="footSocials"></div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<!-- Project modal -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="icon-btn modal-close" data-close aria-label="Close">✕</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
